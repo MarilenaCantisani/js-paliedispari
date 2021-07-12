@@ -5,14 +5,22 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto. */
 
-//TODO Chiedo all'utente pari o dispari ed un numero da 1 a 5
 var userChoice = prompt("Pari o dispari?", "pari");
 console.log(userChoice);
+
+while (!userChoice || (userChoice !== "pari" && userChoice !== "dispari")) {
+    userChoice = prompt("Pari o dispari?", "pari");
+    console.log(userChoice);
+}
 
 var userNumber = prompt("Scegli un numero da 1 a 5", "4");
 console.log("Numero scelto dall'utente: ", userNumber);
 
-//TODO Generp un numero random per il computer 
+while (!userNumber || isNaN(userNumber) || userNumber <= 0 || userNumber > 5) {
+    userNumber = prompt("Scegli un numero da 1 a 5", "4");
+    console.log("Numero scelto dall'utente: ", userNumber);
+}
+
 function getRandomNumber(min, max) {
     max++;
     var randomNumber = Math.floor(Math.random() * (max - min) + min);
@@ -25,6 +33,7 @@ console.log("Numero random: ", computerNumber);
 
 var sum = parseInt(userNumber) + parseInt(computerNumber);
 console.log("Somma dei numeri: ", sum);
+
 var evenSum = isEven(sum);
 console.log("è pari? ", evenSum)
 
@@ -38,7 +47,7 @@ function isEven(number) {
     return isEven;
 }
 
-if (userChoice === "pari" || evenSum === "true" && userChoice === "dispari" || evenSum === "false") {
+if ((userChoice === "pari" && evenSum === true) || (userChoice === "dispari" && evenSum === false)) {
     console.log("Hai vinto!");
 } else {
     console.log("Hai perso!");
