@@ -5,8 +5,10 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto. */
 
+var dispayResultElement = document.getElementById("dispay-result");
+
 var userChoice = prompt("Pari o dispari?", "pari");
-console.log(userChoice);
+console.log("L'utente ha scelto: ", userChoice);
 
 while (!userChoice || (userChoice !== "pari" && userChoice !== "dispari")) {
     userChoice = prompt("Pari o dispari?", "pari");
@@ -49,6 +51,8 @@ function isEven(number) {
 
 if ((userChoice === "pari" && evenSum === true) || (userChoice === "dispari" && evenSum === false)) {
     console.log("Hai vinto!");
+    dispayResultElement.innerText = "Hai vinto!";
 } else {
     console.log("Hai perso!");
+    dispayResultElement.innerText = "Hai perso!";
 }
