@@ -19,7 +19,7 @@ wordChosenElement.innerText = "La parola scelta è: " + userWord;
 buttonChecksElement.classList.remove("d-none");
 
 buttonChecksElement.addEventListener("click", function () {
-    var userWordReverse = isPalidroma(userWord);
+    var userWordReverse = reverseWord(userWord);
 
     if (userWord === userWordReverse) {
         console.log("La parola inserita è palidroma!");
@@ -29,9 +29,8 @@ buttonChecksElement.addEventListener("click", function () {
         resultVerificationElement.innerText = "La parola inserita non è palidroma!";
     }
 
-    function isPalidroma(word) {
+    function reverseWord(word) {
         var wordReverse = word.split("").reverse().join("");
-        console.log("Parola invertita: ", wordReverse)
         return wordReverse;
     }
 });
